@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+
+
+<div class="login-area ptb-100">
+<div class="container">
+<div class="login-form">
+<h2>Login Here</h2>
+<p>Welcome Back, Login To Your Account</p>
+<form method="POST" action="">
+    {% csrf_token %}
+    {% include 'messages.html' %}
+<div class="form-group">
+<label>Your username</label>
+<input type="text" name="username" class="form-control" placeholder="Your username">
+</div>
+<div class="form-group">
+<label>Your password</label>
+<input type="password" name="password" class="form-control" placeholder="Your password">
+</div>
+<div class="row align-items-center">
+<div class="col-lg-6 col-md-6 col-sm-6 remember-me-wrap">
+<p>
+<input type="checkbox" id="test2">
+<label for="test2">Remember me</label>
+</p>
+</div>
+
+</div>
+<button type="submit" class="default-btn">Login Now</button>
+<div class="account-text">
+<span>Don’t have an account? <a href="{% url 'userurl:signup' %}">Create Account</a></span>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+
+
+</body>
+{% endblock content %}

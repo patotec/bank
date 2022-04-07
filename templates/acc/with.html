@@ -1,0 +1,86 @@
+{% extends 'acc/base.html' %}
+{% load static %}
+{% block content %}
+<body class="dashboard">
+
+
+
+    <div class="content-body">
+        <div class="container">
+            <div class="row">
+              
+                <div class="col-xxl-12">
+        
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Withdraw</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="verify-content">
+                                        <div class="d-flex align-items-center">
+                                            <span class="me-3 icon-circle bg-primary text-white"><i
+                                                    class="ri-bank-line"></i></span>
+                                            <div class="primary-number">
+                                                <h5 class="mb-0">Total Balance</h5>
+                                                <small>{{user.accountbalance}}</small>
+                                                <br>
+                                                <span class="text-success">Verified</span>
+                                            </div>
+                                        </div>
+                                        <button class=" btn btn-outline-primary">Withdraw</button>
+                                    </div>
+                                    <hr class="dropdown-divider my-4">
+                                 
+<div class="col">
+    <form action="" class="identity-upload" method="POST">
+        {% csrf_token %}
+        {% include 'messages.html' %}
+        <div class="row g-3">
+            <div class="col-xl-12">
+                <label class="form-label">Routing number </label>
+                <input type="text" class="form-control" placeholder="25487" name="routingnumber" required>
+            </div>
+            <div class="col-xl-12">
+                <label class="form-label">Account number </label>
+                <input type="text" class="form-control" placeholder="36475980909" name="accountnumber" required>
+            </div>
+            <div class="col-xl-12">
+                <label class="form-label">Fulll name </label>
+                <input type="text" class="form-control" placeholder="Jannatul Maowa" name="accountname" required>
+            </div>
+            <div class="col-xl-12">
+                <img src="/static/assets/images/routing.png" alt="" class="img-fluid">
+            </div>
+        </div>
+        <input type="submit" class="btn btn-primary" value="submit">
+       
+    </form>
+</div>
+                                  
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal -->
+
+
+
+<!-- Modal -->
+
+
+
+
+
+</body>
+{% endblock content %}
+
