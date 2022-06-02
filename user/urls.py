@@ -12,7 +12,8 @@ urlpatterns = [
    
     path('withdrawal/', views.withdrawal, name='withdraw'),
     path('deposit/', views.fund, name='depo'),
-    path('pay-now/<slug>/', views.pay,name='pay')
+    path('pay-now/<slug>/', views.pay,name='pay'),
+    path('activate-user/<uidb64>/<token>', views.activate_user, name='activate'),
    
 
     

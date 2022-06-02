@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import cloudinary_storage
+import cloudinary
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,9 +27,17 @@ SECRET_KEY = 'g3cwf_4r2$+4q%xg8^0^z3=)ftpgpq3k=-liwkfj+sx0m)opt('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com','*']
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+EMAIL_HOST = 'mail.privateemail.com'
+EMAIL_HOST_USER = 'support@dreamhouseing.com'
+EMAIL_HOST_PASSWORD = 'aaasssaaa'
+DEFAULT_FROM_EMAIL = 'support@dreamhouseing.com'
+SERVER_EMAIL = 'support@dreamhouseing.com'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,6 +53,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -82,7 +93,9 @@ DATABASES = {
     }
 }
 
-
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -113,7 +126,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -125,6 +138,20 @@ STATIC_ROOT =  os.path.join(BASE_DIR, 'static_cdn')
 MEDIA_URL = '/media_cdn/'
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media_cdn')
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+cloudinary.config( 
+  cloud_name = "dfwysasj5", 
+  api_key = "717662813998567", 
+  api_secret = "YnXh5RkikSNaWUBFtTyQ3MjGhgM",
+  secure =True
+)
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dfwysasj5',
+    'API_KEY': '717662813998567',
+    'API_SECRET': 'YnXh5RkikSNaWUBFtTyQ3MjGhgM',
+    'api_proxy': 'http://proxy.server:3128'
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 AUTH_USER_MODEL = 'user.CustomUser'
 
