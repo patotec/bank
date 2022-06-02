@@ -32,10 +32,10 @@ ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com','*']
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 EMAIL_HOST = 'mail.privateemail.com'
-EMAIL_HOST_USER = 'support@dreamhouseing.com'
+EMAIL_HOST_USER = 'support@apextopbank.com'
 EMAIL_HOST_PASSWORD = 'aaasssaaa'
-DEFAULT_FROM_EMAIL = 'support@dreamhouseing.com'
-SERVER_EMAIL = 'support@dreamhouseing.com'
+DEFAULT_FROM_EMAIL = 'support@apextopbank.com'
+SERVER_EMAIL = 'support@apextopbank.com'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 # Application definition
