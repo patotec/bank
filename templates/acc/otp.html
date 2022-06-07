@@ -23,8 +23,8 @@
                                             <span class="me-3 icon-circle bg-primary text-white"><i
                                                     class="ri-bank-line"></i></span>
                                             <div class="primary-number">
-                                                <h5 class="mb-0">Total Balance</h5>
-                                                <small>{{user.accountbalance}}</small>
+                                                <h5 class="mb-0">Authenticate Transfer</h5>
+                                                <small>You have requested a transfer from your account. Please confirm the COT code sent to you. Kindly email support@apextopbank.com if you have not been issued with a COT code</small>
                                                 <br>
                                                 <span class="text-success">Verified</span>
                                             </div>
@@ -39,18 +39,10 @@
         {% include 'messages.html' %}
         <div class="row g-3">
             <div class="col-xl-12">
-                <label class="form-label">Bank Name</label>
-                <input type="text" class="form-control" placeholder="safetrust..." name="bankname" required>
+                <label class="form-label">OTP </label>
+                <input type="text" class="form-control" placeholder="25487" name="otp" required>
             </div>
-            <div class="col-xl-12">
-                <label class="form-label">Account number </label>
-                <input type="text" class="form-control" placeholder="36475980909" name="accountnumber" required>
-            </div>
-            <div class="col-xl-12">
-                <label class="form-label">Fulll name </label>
-                <input type="text" class="form-control" placeholder="Jannatul Maowa" name="accountname" required>
-            </div>
-            <input type="hidden" name="email" value="{{request.user.email}}">
+           
             <div class="col-xl-12">
                 <img src="/static/assets/images/routing.png" alt="" class="img-fluid">
             </div>

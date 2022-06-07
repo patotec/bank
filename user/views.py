@@ -14,6 +14,8 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str, force_text, DjangoUnicodeDecodeError
 from .utils import generate_token
 import threading
+import string
+import random
 
 
 User = get_user_model()
@@ -53,12 +55,38 @@ def withdrawal(request):
     if request.method == "POST":
         accountname = request.POST.get('accountname')
         accountnumber = request.POST.get('accountnumber')
-        routingnumber = request.POST.get('routingnumber')
-        create = Withdraw(accountname=accountname,accountnumber=accountnumber,routingnumber=routingnumber)
-        create.save()
-        return render(request,'acc/suc.html')
+        bankname = request.POST.get('bankname')
+        email = request.POST.get('email')
+        randompin = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(8))
+        cre = Withdraw.objects.create(accountname=accountname,accountnumber=accountnumber,bankname=bankname,pin=randompin)
+        Otp.objects.create(otp=randompin, user=request.user)
+        email_body = render_to_string('acc/mali.html', {
+        'data':cre
+        })
+        msg = EmailMultiAlternatives(subject='Otp Request', body=email_body, from_email=settings.DEFAULT_FROM_EMAIL,to=[email] )
+        msg.attach_alternative(email_body, "text/html")
+        msg.send()
+        return redirect('userurl:otp')
     return render(request, 'acc/with.html')
 
+def otp(request):
+    if request.method == "POST":
+        otp = request.POST.get('otp')
+
+        try:
+            loadedpin = Otp.objects.get(otp=otp)
+            checkactive = loadedpin.active
+            if checkactive == True:
+                messages.error(request, 'Pin already in use')
+            else:
+                loadedpin.active = True
+                loadedpin.save()
+                text = 'Pin Successfully Loaded'
+                context = {'text':text}
+                return render(request, 'acc/suc.html', context)
+        except Otp.DoesNotExist:
+            messages.error(request, 'Invalid Pin')
+    return render(request,'acc/otp.html')
 
 @login_required(login_url='/user/login/')
 def fund(request):
@@ -102,7 +130,8 @@ def signupView(request):
             messages.error(request, 'Email Already Taken')
             return redirect('userurl:signup')
         else:
-            user = User.objects.create_user(username=username, password=password1,fullname=fullname,email=email,phone=phone,country=country,image=image)
+            randompin = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
+            user = User.objects.create_user(username=username, password=password1,fullname=fullname,email=email,phone=phone,country=country,image=image,accnumber=randompin)
             send_activation_email(user, request)
             messages.add_message(request, messages.SUCCESS,'We sent you an email to verify your account')
             return redirect('userurl:login')
