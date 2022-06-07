@@ -14,7 +14,7 @@
 <p>An international account to send money to over 60 countries around the world, up to 7x cheaper the bank. <a href="{% url 'indexurl:about' %}">Learn more</a></p>
 <ul class="banner-btn-group">
 <li>
-<a href="{% url 'userurl:signup' %}" class="default-btn">Get Started</a>
+<a href="{% url 'userurl:login' %}" class="default-btn">Get Started</a>
 </li>
 <li>
 <a href="{% url 'indexurl:contact' %}" class="optional-btn">Conatct Us</a>
@@ -169,38 +169,7 @@
 </div>
 
 
-<div class="pricing-area pb-75">
-<div class="container">
-<div class="section-title">
-<span>Our Pricing Plan</span>
-<h2>We Charge As Little As Possible. No Subscription Fee</h2>
-</div>
-<div class="row justify-content-center">
-    {% for i in plan %}
-<div class="col-lg-4 col-md-6">
-<div class="single-pricing-table" data-aos="fade-up" data-aos-delay="50" data-aos-duration="500" data-aos-once="true">
-<div class="pricing-header">
-<h3>{{i.name}}</h3>
-</div>
-<div class="price">${{i.price}} <span></span></div>
-<div class="pricing-btn">
-<a href="{% url 'userurl:depo' %}" class="default-btn">Choose This Plan</a>
-</div>
-<ul class="features-list">
-<li><i class="ri-check-line"></i> Free Mobile & Online App</li>
-<li><i class="ri-check-line"></i> Online System</li>
-<li><i class="ri-check-line"></i> Data full Access</li>
-<li><i class="ri-check-line"></i> 1 Business Mastercard</li>
-<li><i class="ri-check-line"></i> International Payment</li>
-<li><i class="ri-check-line"></i> Support Unlimited</li>
-</ul>
-</div>
-</div>
-{% endfor %}
 
-</div>
-</div>
-</div>
 
 
 <div class="benefits-area pt-100 pb-75">

@@ -3,12 +3,11 @@ from .models import *
 from .forms import *
 from django.contrib import messages
 from django.http import HttpResponse, request
-from user.models import Plan
+
 
 def myindex(request):
     qs = Review.objects.all()
-    ho = Plan.objects.all()
-    context = {'rev':qs,'plan':ho}
+    context = {'rev':qs}
     return render(request, 'index/index-3.html',context)
 
 

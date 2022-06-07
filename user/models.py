@@ -41,30 +41,27 @@ class Withdraw(models.Model):
     def __str__(self):
         return self.accountname
         
-class Plan(models.Model):
-    name = models.CharField(max_length=50,default='0')
-    price = models.CharField(max_length=50,default='0')
-    def __str__(self):
-        return self.name
+# class Plan(models.Model):
+#     name = models.CharField(max_length=50,default='0')
+#     price = models.CharField(max_length=50,default='0')
+#     def __str__(self):
+#         return self.name
 
 
-class Pay_method(models.Model):
-    name = models.CharField(max_length=50,default='0')
-    wallet = models.CharField(max_length=500,default='0')
-    image = models.FileField()
-    visible = models.BooleanField(default=True)
-    slug = models.SlugField(blank=True)
-    def __str__(self):
-        return self.name
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
-        super(Pay_method, self).save(*args, **kwargs)
+# class Pay_method(models.Model):
+#     name = models.CharField(max_length=50,default='0')
+#     wallet = models.CharField(max_length=500,default='0')
+#     image = models.FileField()
+#     visible = models.BooleanField(default=True)
+#     slug = models.SlugField(blank=True)
+#     def __str__(self):
+#         return self.name
+#     def save(self, *args, **kwargs):
+#         self.slug = slugify(self.name)
+#         super(Pay_method, self).save(*args, **kwargs)
 
 class Payment(models.Model):
     user = models.CharField(max_length=50,default='0')
-    name = models.CharField(max_length=50,default='0')
-    price = models.CharField(max_length=50,default='0')
-    wallet = models.CharField(max_length=500,default='0')
     image = models.FileField()
     approve = models.BooleanField(default=False)
     def __str__(self):

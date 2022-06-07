@@ -10,9 +10,9 @@ class PaymentAdmin(admin.ModelAdmin):
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
-admin.site.register(Plan)
+
 admin.site.register(Withdraw)
 admin.site.register(Otp)
 
-admin.site.register(Pay_method)
+
 admin.site.register(Payment,PaymentAdmin)

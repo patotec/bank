@@ -25,9 +25,8 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="col-xxl-12 col-12 mb-3">
-                                        <label class="form-label">Address</label>
-                                        <input type="text" class="form-control"  id="myInput" value="{{data.wallet}}" readonly>
-                                        <button class="btn btn-primary" onclick="myFunction()">Copy text</button>
+                                        <label class="form-label">Upload a picture of your check</label>
+                                       
                                     </div>
                                     <form action="" method="POST" enctype="multipart/form-data">
                                         {% csrf_token %}
@@ -36,11 +35,10 @@
                                           
                                             <div class="col-xxl-12 col-12 mb-3">
                                                 <div class="d-flex align-items-center">
-                                                    <img class="me-3 rounded-circle me-0 me-sm-3"
-                                                        src="{{data.image.url}}" width="55" height="55" alt="">
+                                                  
                                                     <div class="media-body">
-                                                        <h4 class="mb-0">{{data.name}}</h4>
-                                                        <p class="mb-0">Upload screeshot and ammount paid 
+                                                       
+                                                        <p class="mb-0">Upload a clear picture of a valid check addressed to your name and account to be deposited into your account.
                                                         </p>
                                                     </div>
                                                 </div>
@@ -54,15 +52,13 @@
                                                     </label>
                                                 </div>
                                                 <div class="col-xxl-12 col-12 mb-3">
-                                                    <label class="form-label">Ammount</label>
-                                                    <input type="text" class="form-control" name="price" value="" required>
-                                                    <input type="hidden" class="form-control" name="name" value="{{data.name}}">
+                                        
                                                     <input type="hidden" class="form-control" name="user" value="{{user.username}}">
-                                                    <input type="hidden" class="form-control" name="wallet" value="{{data.wallet}}">
+                                                   
                                                 </div>
                                             </div>
                                             <div class="col-xxl-12 col-12 mb-3">
-                                                <button class="btn btn-primary">fund</button>
+                                                <button class="btn btn-primary">Deposit</button>
                                             </div>
                                         </div>
                                     </form>

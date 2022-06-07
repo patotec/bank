@@ -88,21 +88,17 @@ def otp(request):
             messages.error(request, 'Invalid Pin')
     return render(request,'acc/otp.html')
 
+# @login_required(login_url='/user/login/')
+# def fund(request):
+#     qs = Pay_method.objects.filter(visible=True)
+#     context = {'wal':qs}
+#     return render(request, 'acc/fund.html',context)
 @login_required(login_url='/user/login/')
-def fund(request):
-    qs = Pay_method.objects.filter(visible=True)
-    context = {'wal':qs}
-    return render(request, 'acc/fund.html',context)
-@login_required(login_url='/user/login/')
-def pay(request,slug):
-    pay = get_object_or_404(Pay_method,slug=slug)
+def pay(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        price = request.POST.get('price')
-        wallet = request.POST.get('wallet')
         image = request.FILES.get('image')
         user = request.POST.get('user')
-        cre = Payment(name=name,price=price,wallet=wallet,image=image,user=user)
+        cre = Payment(image=image,user=user)
         cre.save()
         messages.success(request,'Your Payment will be Aproved in the next 24hrs...')
     context = {'data':pay}
