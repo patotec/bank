@@ -13,6 +13,6 @@ admin.site.register(CustomUser, CustomUserAdmin)
 
 admin.site.register(Withdraw)
 admin.site.register(Otp)
-
+admin.site.register(Tran)
 
 admin.site.register(Payment,PaymentAdmin)

@@ -109,20 +109,22 @@
                         <div class="card-body">
                             <div class="invoice-content">
                                 <ul>
+                                    {% for i in qs %}
                                     <li class="d-flex justify-content-between active">
                                         <div class="d-flex align-items-center">
-                                            <div class="invoice-user-img me-3"><img src="images/avatar/1.jpg" alt=""
+                                            <div class="invoice-user-img me-3"><img src="/static/images/avatar/1.jpg" alt=""
                                                     width="50"></div>
                                             <div class="invoice-info">
-                                                <h5 class="mb-0">Terry P. Camacho</h5>
-                                                <p>1 january 2022 at 10.15 pm</p>
+                                                <h5 class="mb-0">{{i.name}}</h5>
+                                                <p>{{i.date}}</p>
                                             </div>
                                         </div>
                                         <div class="text-end">
-                                            <h5 class="mb-2">+12,500.00</h5>
-                                            <span class=" text-white bg-success">Paid</span>
+                                            <h5 class="mb-2">{{i.price}}</h5>
+                                            <span class=" text-white bg-success">{{i.status}}</span>
                                         </div>
                                     </li>
+                                    {% endfor %}
                                     <li class="d-flex justify-content-between">
                                         <div class="d-flex align-items-center">
                                             <div class="invoice-user-img me-3"><img src="images/avatar/2.jpg" alt=""

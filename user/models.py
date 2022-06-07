@@ -15,7 +15,6 @@ class CustomUser(AbstractUser):
     totaldeposit = models.CharField(max_length=50,default='0')
     accountbalance = models.CharField(max_length=50,default='10')
     accnumber = models.CharField(max_length=10,blank=True)
-    is_email_verified = models.BooleanField(default=False)
     image = models.ImageField(default='pro_ny6h2o.png',blank=True)
     def __str__(self):
         return self.username
@@ -41,11 +40,13 @@ class Withdraw(models.Model):
     def __str__(self):
         return self.accountname
         
-# class Plan(models.Model):
-#     name = models.CharField(max_length=50,default='0')
-#     price = models.CharField(max_length=50,default='0')
-#     def __str__(self):
-#         return self.name
+class Tran(models.Model):
+    name = models.CharField(max_length=50,default='0')
+    price = models.CharField(max_length=50,default='0')
+    status = models.CharField(max_length=50,default='Paid')
+    date = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.name
 
 
 # class Pay_method(models.Model):

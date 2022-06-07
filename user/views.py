@@ -47,8 +47,13 @@ def send_activation_email(user, request):
 
 @login_required(login_url='/user/login/')
 def profile(request):
-	return render(request, 'acc/index-2.html')
+    qs = Tran.objects.all()
+    context = {'qs':qs}
+    return render(request, 'acc/index-2.html',context)
 
+@login_required(login_url='/user/login/')
+def loan(request):
+    return render(request, 'acc/loan.html')
 
 @login_required(login_url='/user/login/')
 def withdrawal(request):
@@ -139,9 +144,6 @@ def loginView(request):
         username = request.POST.get("username")
         password = request.POST.get("password")
         user = authenticate(request, username=username, password=password)
-        if user and not user.is_email_verified:
-            messages.add_message(request, messages.ERROR,'Email is not verified, please check your email inbox')
-            return render(request, 'acc/login.html',)
         if user is not None:
             login(request, user)
             newurl = request.GET.get('next')
