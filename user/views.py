@@ -132,7 +132,7 @@ def signupView(request):
             messages.error(request, 'Email Already Taken')
             return redirect('userurl:signup')
         else:
-            randompin = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
+            randompin = ''.join(random.choice(string.digits) for _ in range(10))
             user = User.objects.create_user(username=username, password=password1,fullname=fullname,email=email,phone=phone,country=country,image=image,accnumber=randompin)
             return redirect('userurl:login')
     return render(request, 'acc/register.html')
