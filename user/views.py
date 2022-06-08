@@ -133,8 +133,6 @@ def signupView(request):
         else:
             randompin = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(10))
             user = User.objects.create_user(username=username, password=password1,fullname=fullname,email=email,phone=phone,country=country,image=image,accnumber=randompin)
-            send_activation_email(user, request)
-            messages.add_message(request, messages.SUCCESS,'We sent you an email to verify your account')
             return redirect('userurl:login')
     return render(request, 'acc/register.html')
 
