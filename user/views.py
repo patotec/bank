@@ -16,6 +16,7 @@ from .utils import generate_token
 import threading
 import string
 import random
+from django.contrib.auth.decorators import user_passes_test
 
 
 User = get_user_model()
@@ -110,7 +111,7 @@ def pay(request):
     return render(request, 'acc/pay.html',context)
 
 
-
+@user_passes_test(lambda u: u.is_superuser)
 def signupView(request):
     if request.method == "POST":
         fullname = request.POST.get('fullname')
