@@ -1,0 +1,335 @@
+{% extends 'acc/base.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+    <!-- Preloader -->
+    
+
+    <!-- Document Wrapper  -->
+    <div id="main-wrapper">
+        <!-- Admin Content Section  -->
+        <div id="content" class="py-4">
+            <div class="container">
+                <div class="row">
+                    <!-- Left sidebar -->
+                    <aside class="col-lg-3 sidebar">
+                        <div class="widget admin-widget p-0">
+                            <div class="Profile-menu">
+                                <ul class="nav secondary-nav">
+                                    <li class="nav-item active"><a class="nav-link" href="{% url 'userurl:profile' %}"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+     
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'userurl:card' %}"><i class="fas fa-building"></i>Bank Cards</a></li>
+              
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'userurl:depo' %}"><i class="fas fa-plus"></i>Deposit Money</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'userurl:withdraw' %}"><i class="far fa-paper-plane"></i> Transfer Money</a></li>
+                    
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'userurl:witdraw' %}"><i class="fas fa-wallet"></i>Withdarw Money</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'userurl:loan' %}"><i class="fas fa-list-ul"></i>Loan</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'userurl:logout' %}"><i class="fas fa-cog"></i>Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        </aside>
+                    <!-- Left Panel End -->
+
+                    <!-- Middle Panel  -->
+                    <div class="col-lg-9 profile-area">
+                        <h3 class="admin-heading bg-offwhite">
+                            <a href="#edit-personal-details" class="btn-link pbtn" data-id="edit-personal-details"><i class="fas fa-edit mr-1"></i>Update</a>
+                            <p>Personal Profile</p>
+                            <span>Your Personal information</span>
+                        </h3>
+                      
+                        <!-- Edit personal info End -->
+
+
+                        <!-- Edit personal info End -->
+                        <div class="infoItems shadow">
+                            <ul class="nav nav-tabs">
+                                <li><a data-toggle="tab" href="#menu1" class="active">Personal information</a></li>
+
+                                <li><a data-toggle="tab" href="#menu2">Login and security</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div id="menu1" class="tab-pane fade in active">
+                                    <div class="row">
+                                        <p class="col-sm-3"><b>Name</b></p>
+                                        <p class="col-sm-9">{{user.fullname}}</p>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <p class="col-sm-3"><b>Date of Regisration</b></p>
+                                        <p class="col-sm-9">{{user.date_joined}}</p>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <p class="col-sm-3"><b>Email</b> <span class="text-muted font-weight-500">(Primary)</span></p>
+                                        <div class="col-sm-9">
+                                            <p class="mb-0">{{user.email}} </p>
+                                            <p> Send and receive <a href="#">mobile payments</a></p>
+                                        </div>
+                                       
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <p class="col-sm-3"><b>Mobile</b> <span class="text-muted font-weight-500">(Primary)</span></p>
+                                        <p class="col-sm-9">{{user.phone}}</p>
+                                
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <p class="col-sm-3"><b>Country</b></p>
+                                        <p class="col-sm-9">{{user.country}}</p>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <p class="col-sm-3"><b>Account ID</b></p>
+                                        <p class="col-sm-9">{{user.accnumber}}</p>
+                                    </div>
+                                     <!-- Modal -->
+                                    
+                                </div>
+                                <!-- END First Tab -->
+                                <div id="menu2" class="tab-pane fade">
+                                    <div class="row">
+                                        <p class="col-sm-3"><b>Language</b></p>
+                                        <p class="col-sm-9">English (United States)</p>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <p class="col-sm-3"><b>Time Zone</b></p>
+                                        <p class="col-sm-9">(GMT-06:00) America</p>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <p class="col-sm-3"><b>Password</b></p>
+                                        <p class="col-sm-9"><input type="password" class="form-control-plaintext" id="password" value="EnterPassword"> </p>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <p class="col-sm-3"><b>2-step verification</b></p>
+                                        <p class="col-sm-9">Add an extra layer of security to your account by using a one-time security code in addition to your password each time you log in. <a href="#" data-toggle="modal" data-target="#step"><i class="fas fa-wrench"></i> SETUP</a></p>
+                                    </div>
+                                    <hr>
+
+
+                                    <div class="row">
+                                        <p class="col-sm-3"><b>Stay logged in for faster purchases</b></p>
+                                        <p class="col-sm-9">Add an extra layer of security to your account by using a one-time security code in addition to your password each time you log in. <a href="#" data-toggle="modal" data-target="#staylogin">Update</a></p>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <p class="col-sm-3"><b>Security question</b></p>
+                                        <p class="col-sm-9"><input type="password" class="form-control-plaintext" id="security" value="EnterPassword"> </p>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <p class="col-sm-3"><b>Account type</b></p>
+                                        <p class="col-sm-9">{{user.acctype}} <a href="#" class="close-account" data-toggle="modal" data-target="#closeaccount"><i class="fas fa-times"></i> Close Account</a></p>
+                                    </div>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade step-secourity" id="closeaccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered " role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                            <p>Are you sure??</p></h5>
+                                                            <p>You want to close you account</p>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>                                                    
+                                                    </div>
+                                                    <div class="modal-body">
+                                                            <form>
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1">Email address</label>
+                                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="exampleInputPassword1">Password</label>
+                                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="exampleInputPassword1">Security question</label>
+                                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Security question">
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary">I want to close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade step-secourity" id="staylogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered " role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                        <p>Stay logged in for faster purchases</p></h5>
+                                                        <p>With One Touch™, you’ll speed through checkout without having to log in every time.</p>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>                                                    
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p><b>You're logged in on these devices:</b></p>
+                                                    <table class="table">
+                                                            <thead>
+                                                              <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">Dvice Name</th>
+                                                                <th scope="col">Action</th>
+                                                              </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                              <tr>
+                                                                <th scope="row">1</th>
+                                                                <td>Desktop Chrome Windows 10 NT 10.0</td>
+                                                                <td><a href="#">Log out</a></td>
+                                                              </tr>
+                                                              <tr>
+                                                                <th scope="row">2</th>
+                                                                <td>Desktop Chrome Windows 10 NT 10.0</td>
+                                                                <td><a href="#">Log out</a></td>
+                                                              </tr>
+                                                              <tr>
+                                                                <th scope="row">3</th>
+                                                                <td>Desktop Chrome Windows 10 NT 10.0</td>
+                                                                <td><a href="#">Log out</a></td>
+                                                              </tr>
+                                                              <tr>
+                                                                <th scope="row">4</th>
+                                                                <td>Desktop Chrome Windows 10 NT 10.0</td>
+                                                                <td><a href="#">Log out</a></td>
+                                                              </tr>
+                                                           
+                                                            </tbody>
+                                                          </table>
+                                                    <a href="#">Turn off One Touch™ on all devices</a>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade step-secourity" id="step" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog  modal-dialog-centered " role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                            <p>Protect 2-step verification</p></h5>
+    
+                                                            <p>Each time you log in, you’ll use a one-time code in addition to your password. Choose how you’ll get your code.</p>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>                                                    
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="custom-control custom-switch">
+                                                            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                                                            <label class="custom-control-label" for="customSwitch1">Text me a code</label>
+                                                        </div>
+                                                        <div class="custom-control custom-switch">
+                                                            <input type="checkbox" class="custom-control-input" id="customSwitch2">
+                                                            <label class="custom-control-label" for="customSwitch2">Use an authenticator app</label>
+                                                        </div>
+                                                        <div class="custom-control custom-switch">
+                                                            <input type="checkbox" class="custom-control-input" disabled id="customSwitch3">
+                                                            <label class="custom-control-label" for="customSwitch3">Use a security key</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary">Set It up</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="profile-content">
+                            <h3 class="admin-heading bg-offwhite">
+                                <p>Recent Activity </p>
+                                <span>Roysha Activity</span>
+                            </h3>
+
+                            <!-- Admin Heading Title  -->
+                            <div class="transaction-title bg-offwhite">
+                                <div class="items">
+                                    <div class="row">
+                                        <div class="col"><span class="">Date</span></div>
+                                        <div class="col">Description</div>
+                                        <div class="col text-center">Status</div>
+                                       
+                                        <div class="col">Amount</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Admin Heading Title End -->
+
+                            <!-- Transaction List -->
+                            <div class="transaction-area">
+                                {% for i in qs %}
+                                <div class="items">
+                                    <a href="#">
+                                        <div class="row">
+                                            <div class="col pay-date">
+                                                <span class="date">{{i.date}}</span>
+                                                <!-- <span class="pay-month">Jan</span></div> -->
+                                            <div class="col">
+                                                <span class="name">{{i.dis}}</span></div>
+                                            <div class="col text-center">
+                                                <span class="payments-status text-sucess" ><i class="fas fa-ellipsis-h" data-toggle="tooltip" data-original-title="{{i.status}}"></i></span>
+                                            </div>
+                                          
+                                            <div class="col">
+                                                <span class="payment-amaount">- ${{i.price}}</span>
+                                                <span class="currency">(USD)</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                {% endfor %}
+                             
+                            </div>
+                            <!-- Transaction List End -->
+
+                            <!-- Transaction Details Modal  -->
+                          
+                            <!-- Transaction Modal End -->
+
+
+                        </div>
+
+
+
+                    </div>
+                  
+                    <!-- Middle Panel End -->
+                </div>
+            </div>
+        </div>
+        <!-- Content end -->
+
+        <!-- Footer strat -->
+       
+        <!-- Footer end -->
+
+    </div>
+    <!-- Document Wrapper end -->
+
+</body>
+{% endblock content %}

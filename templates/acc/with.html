@@ -1,87 +1,105 @@
+
 {% extends 'acc/base.html' %}
 {% load static %}
 {% block content %}
-<body class="dashboard">
+<body>
+    <!-- Preloader -->
+  
 
+    <!-- Document Wrapper  -->
+    <div id="main-wrapper">
+        <!-- Header start -->
+      
+        <!-- Admin End of Hero section-->
 
+        <!-- Profile bar -->
+      
+            <!-- End Profile bar -->
 
-    <div class="content-body">
-        <div class="container">
-            <div class="row">
+        <!-- Content -->
+        <div id="content" class="py-4">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Left sidebar -->
+                    <aside class="col-lg-3 sidebar">
+                        <div class="widget admin-widget p-0">
+                            <div class="Profile-menu">
+                                <ul class="nav secondary-nav">
+                                    <li class="nav-item active"><a class="nav-link" href="{% url 'userurl:profile' %}"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+     
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'userurl:card' %}"><i class="fas fa-building"></i>Bank Cards</a></li>
               
-                <div class="col-xxl-12">
-        
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Withdraw</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="verify-content">
-                                        <div class="d-flex align-items-center">
-                                            <span class="me-3 icon-circle bg-primary text-white"><i
-                                                    class="ri-bank-line"></i></span>
-                                            <div class="primary-number">
-                                                <h5 class="mb-0">Total Balance</h5>
-                                                <small>{{user.accountbalance}}</small>
-                                                <br>
-                                                <span class="text-success">Verified</span>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'userurl:depo' %}"><i class="fas fa-plus"></i>Deposit Money</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'userurl:withdraw' %}"><i class="far fa-paper-plane"></i> Transfer Money</a></li>
+                    
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'userurl:witdraw' %}"><i class="fas fa-wallet"></i>Withdarw Money</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'userurl:loan' %}"><i class="fas fa-list-ul"></i>Loan</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{% url 'userurl:logout' %}"><i class="fas fa-cog"></i>Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        </aside>
+                    <!-- Left Panel End -->
+
+                    <div class="col-lg-9 profile-area">
+                        <div class="profile-content">
+                            <h3 class="admin-heading">Withdarw Money</h3>
+                          
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                    <!-- Edit personal info End -->
+
+                                    <form action="" method="post" class="form py-5">
+                                        <div class="infoItems p-0">
+                                          
+                                            <div class="tab-content">
+                                                <div id="menu1" class="tab-pane fade in active">
+                                                    <div class="form-group">
+                                                        <label for="payerName">Bank Name</label>
+                                                        <input type="text" value="" name="bankname" class="form-control" required placeholder="Bank Name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="payerName">Account Name</label>
+                                                        <input type="text" name="accountname" value="" class="form-control" required placeholder="Account Namw">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="payerName">Account Number</label>
+                                                        <input type="text" name="accountnumber" value="" class="form-control" required placeholder="Account number">
+                                                    </div>
+                                                   
+                                                    <div class="form-group">
+                                                        <label for="emailID">Email</label>
+                                                        <input type="email" name="email"  class="form-control" id="emailID" required placeholder="Enter Email Address">
+                                                    </div>
+                                                   
+                                                </div>
+                                                <!-- END First Tab -->
+                                            
                                             </div>
                                         </div>
-                                        <button class=" btn btn-outline-primary">Withdraw</button>
-                                    </div>
-                                    <hr class="dropdown-divider my-4">
-                                 
-<div class="col">
-    <form action="" class="identity-upload" method="POST">
-        {% csrf_token %}
-        {% include 'messages.html' %}
-        <div class="row g-3">
-            <div class="col-xl-12">
-                <label class="form-label">Bank Name</label>
-                <input type="text" class="form-control" placeholder="safetrust..." name="bankname" required>
-            </div>
-            <div class="col-xl-12">
-                <label class="form-label">Account number </label>
-                <input type="text" class="form-control" placeholder="36475980909" name="accountnumber" required>
-            </div>
-            <div class="col-xl-12">
-                <label class="form-label">Fulll name </label>
-                <input type="text" class="form-control" placeholder="Jannatul Maowa" name="accountname" required>
-            </div>
-            <input type="hidden" name="email" value="{{request.user.email}}">
-            <div class="col-xl-12">
-                <img src="/static/assets/images/routing.png" alt="" class="img-fluid">
-            </div>
-        </div>
-        <input type="submit" class="btn btn-primary" value="submit">
-       
-    </form>
-</div>
-                                  
-
+                                        <input type="submit"  value="deposit" class="btn btn-primary">
+                                    </form>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Content end -->
+
+
+        <!-- Footer strat -->
+        
+        <!-- Footer end -->
+
     </div>
+    <!-- Document Wrapper end -->
 
-</div>
-
-<!-- Modal -->
-
-
-
-<!-- Modal -->
-
-
-
-
+    <!-- Script -->
+   
 
 </body>
 {% endblock content %}
-

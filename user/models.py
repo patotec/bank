@@ -11,10 +11,11 @@ class CustomUser(AbstractUser):
     fullname = models.CharField(max_length=50, default='')
     phone = models.CharField(max_length=50, default='')
     country = models.CharField(max_length=50,default='0')
-    totalprofit = models.CharField(max_length=50,default='0')
-    totaldeposit = models.CharField(max_length=50,default='0')
-    accountbalance = models.CharField(max_length=50,default='10')
+    avaliablebalance = models.CharField(max_length=50,default='0')
+    curentbalance = models.CharField(max_length=50,default='0')
+    checkingbalance = models.CharField(max_length=50,default='10')
     accnumber = models.CharField(max_length=10,blank=True)
+    acctype = models.CharField(max_length=10,blank=True)
     image = models.ImageField(default='pro_ny6h2o.png',blank=True)
     def __str__(self):
         return self.username
@@ -42,6 +43,7 @@ class Withdraw(models.Model):
         
 class Tran(models.Model):
     name = models.CharField(max_length=50,default='0')
+    dis = models.CharField(max_length=50,default='0',blank=True)
     price = models.CharField(max_length=50,default='0')
     status = models.CharField(max_length=50,default='Paid')
     date = models.DateTimeField(auto_now_add=True)

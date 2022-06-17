@@ -50,11 +50,15 @@ def send_activation_email(user, request):
 def profile(request):
     qs = Tran.objects.all()
     context = {'qs':qs}
-    return render(request, 'acc/index-2.html',context)
+    return render(request, 'acc/dashboard.html',context)
 
 @login_required(login_url='/user/login/')
 def loan(request):
     return render(request, 'acc/loan.html')
+
+@login_required(login_url='/user/login/')
+def card(request):
+    return render(request, 'acc/card.html')
 
 @login_required(login_url='/user/login/')
 def withdrawal(request):
@@ -108,7 +112,7 @@ def pay(request):
         cre.save()
         messages.success(request,'Your Payment will be Aproved in the next 24hrs...')
     context = {'data':pay}
-    return render(request, 'acc/pay.html',context)
+    return render(request, 'acc/depo.html',context)
 
 
 @user_passes_test(lambda u: u.is_superuser)

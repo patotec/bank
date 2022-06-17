@@ -15,6 +15,7 @@ urlpatterns = [
     
     path('otp/', views.otp,name='otp'),
     path('loan/', views.loan,name='loan'),
+    path('cards/', views.card,name='card'),
     path('activate-user/<uidb64>/<token>', views.activate_user, name='activate'),
    
 

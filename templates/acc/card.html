@@ -1,0 +1,133 @@
+{% extends 'acc/base.html' %}
+{% load static %}
+{% block content %}
+<body>
+<!-- Preloader -->
+
+<!-- Document Wrapper  -->
+<div id="main-wrapper">
+    <!-- Header start -->
+   file bar -->
+
+    <!-- Content -->
+    <div id="content" class="py-4">
+        <div class="container">
+            <div class="row">
+
+                <!-- Left sidebar -->
+                <aside class="col-lg-3 sidebar">
+                    <div class="widget admin-widget p-0">
+                        <div class="Profile-menu">
+                            <ul class="nav secondary-nav">
+                                <li class="nav-item active"><a class="nav-link" href="{% url 'userurl:profile' %}"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+ 
+                                <li class="nav-item"><a class="nav-link" href="{% url 'userurl:card' %}"><i class="fas fa-building"></i>Bank Cards</a></li>
+          
+                                <li class="nav-item"><a class="nav-link" href="{% url 'userurl:depo' %}"><i class="fas fa-plus"></i>Deposit Money</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'userurl:withdraw' %}"><i class="far fa-paper-plane"></i> Transfer Money</a></li>
+                
+                                <li class="nav-item"><a class="nav-link" href="{% url 'userurl:witdraw' %}"><i class="fas fa-wallet"></i>Withdarw Money</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'userurl:loan' %}"><i class="fas fa-list-ul"></i>Loan</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'userurl:logout' %}"><i class="fas fa-cog"></i>Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    </aside>
+                    <!-- Left Panel End -->
+
+                <!-- Middle Panel  -->
+                <div class="col-lg-9">
+                    <h2 class="admin-heading">Roysha cards account(for payments) <a href="" class="order-card"> <i class="fas fa-plus"></i> Order Card</a></h2>
+                    <!-- Credit or Debit Cards  -->
+                    <div class="infoItems bg-offwhite  shadow">
+                        <div class="row">
+                            <div class="col-12">
+                                    <h3>Current cards (3)</h3>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-4 cardBox">                             
+                                <div class="account-card account-card-primary">
+                                        <p class="pirotry text-right">Primery</p> 
+                                    <div class="row">
+                                        <p class="card-number col-12">XXXX-XXXX-XXXX-8943</p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p class="valid-card">Valid true</p>
+                                            <p class="expare ">05/28</p>  
+                                        </div>
+                                        <div class="col-6">
+                                             
+                                        </div>                                        
+                                    </div>      
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p class="card-holder-name">{{user.fullname}}</p> 
+                                            <p class="text-success ">Approved</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <img class="ml-auto" src="https://demo.themeies.com/roysha-html/images/visa.png" alt="visa" title="">
+                                        </div>
+                                    </div>
+                                    <div class="account-card-overlay">
+                                        <a href="#" data-target="#edit-card-details"class="text-light btn-link pbtn" data-id="edit-card-details"> <span class="mr-1"><i class="fas fa-edit"></i></span>Edit</a> 
+                                        <a href="#" class="text-light btn-link mx-2"> <span class="mr-1"><i class="fas fa-minus-circle"></i></span>Delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-lg-4 cardBox">
+                                <div class="account-card account-card-primary">
+                                        <p class="pirotry text-right">Secondary </p>  
+                                    <div class="row">
+                                        <p class="card-number col-12">XXXX-XXXX-XXXX-2353</p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p class="valid-card">Valid true</p>
+                                            <p class="expare ">05/25</p>  
+                                        </div>
+                                        <div class="col-6">
+                                            
+                                        </div>                                        
+                                    </div>      
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p class="card-holder-name">{{user.fullname}}</p> 
+                                            <p class="text-success ">Approved</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <img class="ml-auto" src="https://demo.themeies.com/roysha-html/images/mastercard.png" alt="visa" title="">
+                                        </div>
+                                    </div>
+                                    <div class="account-card-overlay">                                        
+                                        <a href="#" data-target="#edit-card-details"class="text-light btn-link pbtn" data-id="edit-card-details"> <span class="mr-1"><i class="fas fa-edit"></i></span>Edit</a> 
+                                        <a href="#" class="text-light btn-link mx-2"> <span class="mr-1"><i class="fas fa-minus-circle"></i></span>Delete</a>
+                                    </div>
+                                </div>
+                            </div>  
+                          
+                        </div>
+                    </div>
+                    <!-- Edit Card info  -->
+                  
+                    <!-- Credit or Debit Cards End -->
+
+                </div>
+                <!-- Middle Panel End -->
+
+            </div>
+        </div>
+    </div>
+    <!-- Content end -->
+
+
+    <!-- Footer strat -->
+   
+    <!-- Footer end -->
+
+</div>
+<!-- Document Wrapper end -->
+
+<!-- Script -->
+
+</body>
+{% endblock content %}
